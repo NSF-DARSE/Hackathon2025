@@ -1,0 +1,306 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>🔍 Anomaly Detection: 19 Records Detected</title>
+<link rel="important stylesheet" href="email_files/messageBody.css">
+</head>
+<body>
+<table class="header-part1" width="100%" cellspacing="0" cellpadding="0" border="0"><tbody><tr><td><div class="headerdisplayname" style="display:inline;">Subject: </div>🔍 Anomaly Detection: 19 Records Detected</td></tr><tr><td><div class="headerdisplayname" style="display:inline;">From: </div>alert@sandboxddad32a875284390992bed0f38391bf8.mailgun.org</td></tr><tr><td><div class="headerdisplayname" style="display:inline;">Date: </div>08/15/2025, 15:04</td></tr></tbody></table><table class="header-part2" width="100%" cellspacing="0" cellpadding="0" border="0"><tbody><tr><td><div class="headerdisplayname" style="display:inline;">To: </div>jiandong@udel.edu</td></tr></tbody></table><br>
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 20px;
+                background-color: #f5f5f5;
+                font-size: 16px;
+            }
+            .container {
+                background-color: white;
+                padding: 20px;
+                border-radius: 8px;
+                box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+                max-width: 1000px;
+                margin: 0 auto;
+            }
+            .header {
+                background-color: #00539f;
+                color: white;
+                padding: 15px;
+                border-radius: 5px;
+                text-align: center;
+                margin-bottom: 20px;
+            }
+            .header h1 {
+                font-size: 28px;
+                margin: 0;
+            }
+            .header p {
+                font-size: 18px;
+                margin: 5px 0 0 0;
+            }
+            .stats-box {
+                background-color: #e3f2fd;
+                padding: 15px;
+                border-radius: 5px;
+                margin-bottom: 20px;
+                border-left: 4px solid #00539f;
+                font-size: 16px;
+            }
+            .stats-box h3 {
+                font-size: 20px;
+                margin-top: 0;
+            }
+            .anomaly-table {
+                width: 100%;
+                border-collapse: collapse;
+                margin-top: 15px;
+                font-size: 15px;
+            }
+            .anomaly-table th {
+                background-color: #00539f;
+                color: white;
+                padding: 12px;
+                text-align: left;
+                border: 1px solid #ddd;
+                font-size: 16px;
+            }
+            .anomaly-table td {
+                padding: 10px;
+                border: 1px solid #ddd;
+                vertical-align: top;
+                font-size: 15px;
+            }
+            .anomaly-table tr:nth-child(even) {
+                background-color: #f9f9f9;
+            }
+            .anomaly-table tr:hover {
+                background-color: #f5f5f5;
+            }
+            .high-z {
+                background-color: #e8f4fd !important;
+                color: #00539f;
+                font-weight: bold;
+            }
+            .low-z {
+                background-color: #e8f5e8 !important;
+                color: #2e7d32;
+                font-weight: bold;
+            }
+            .amount {
+                text-align: right;
+                font-weight: bold;
+            }
+            .z-score {
+                text-align: center;
+                font-weight: bold;
+            }
+            .footer {
+                margin-top: 20px;
+                padding: 15px;
+                background-color: #f0f7ff;
+                border-radius: 5px;
+                border-left: 4px solid #00539f;
+                font-size: 16px;
+            }
+            .footer h3 {
+                font-size: 20px;
+                margin-top: 0;
+            }
+            .no-anomalies {
+                text-align: center;
+                color: #4caf50;
+                font-size: 20px;
+                padding: 30px;
+                background-color: #e8f5e8;
+                border-radius: 5px;
+            }
+            .no-anomalies h2 {
+                font-size: 24px;
+            }
+            h2 {
+                font-size: 22px;
+            }
+        </style>
+    
+    <div class="moz-text-html" lang="x-unicode">
+        <div class="container">
+            <div class="header">
+                <h1>🏛️ Delaware Open Checkbook Anomaly Detection Report</h1>
+                <p>Potential spending irregularities detected</p>
+            </div>
+            
+            <div class="stats-box">
+                <h3>📊 Analysis Summary</h3>
+                <ul>
+                    <li><strong>Total Flagged Records:</strong> 19</li>
+                    <li><strong>Delta Baseline Thresholds:</strong> High &gt; 1.5, Low &lt; -1.0</li>
+                    <li><strong>Dataset Mean:</strong> $849.19</li>
+                    <li><strong>Standard Deviation:</strong> $26,150.57</li>
+                </ul>
+            </div>
+            <h2>🔍 Detected Anomalies (19 of 19 shown)</h2>
+            <table class="anomaly-table">
+                <thead>
+                    <tr>
+                        <th>Vendor</th>
+                        <th>Amount</th>
+                        <th>Account Description</th>
+                        <th>Delta Baseline</th>
+                        <th>Flag Type</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="high-z">
+                        <td>OTHER EMPLOYMENT COSTS BENEFITS</td>
+                        <td class="amount">$1,956,058.38</td>
+                        <td>UNEMPLOYMENT INS BENEFITS</td>
+                        <td class="z-score">74.77</td>
+                        <td>🔴 High Outlier</td>
+                    </tr>
+                    <tr class="high-z">
+                        <td>OTHER EMPLOYMENT COSTS BENEFITS</td>
+                        <td class="amount">$1,065,058.54</td>
+                        <td>EMPLOYER'S SHARE-MEDICARE</td>
+                        <td class="z-score">40.70</td>
+                        <td>🔴 High Outlier</td>
+                    </tr>
+                    <tr class="high-z">
+                        <td>OTHER EMPLOYMENT COSTS BENEFITS</td>
+                        <td class="amount">$989,868.46</td>
+                        <td>WORKMEN'S COMPENSATION</td>
+                        <td class="z-score">37.82</td>
+                        <td>🔴 High Outlier</td>
+                    </tr>
+                    <tr class="high-z">
+                        <td>DELAWARE STATE EDUCATION ASSOC</td>
+                        <td class="amount">$457,523.65</td>
+                        <td>EMPLOYEE UNION DUES</td>
+                        <td class="z-score">17.46</td>
+                        <td>🔴 High Outlier</td>
+                    </tr>
+                    <tr class="high-z">
+                        <td>OTHER EMPLOYMENT COSTS BENEFITS</td>
+                        <td class="amount">$476,961.34</td>
+                        <td>GROUP LIFE INSURANCE</td>
+                        <td class="z-score">18.21</td>
+                        <td>🔴 High Outlier</td>
+                    </tr>
+                    <tr class="high-z">
+                        <td>OTHER EMPLOYMENT COSTS BENEFITS</td>
+                        <td class="amount">$418,055.12</td>
+                        <td>EMPLYR SH/SOCIAL SECURITY</td>
+                        <td class="z-score">15.95</td>
+                        <td>🔴 High Outlier</td>
+                    </tr>
+                    <tr class="high-z">
+                        <td>OTHER EMPLOYMENT COSTS BENEFITS</td>
+                        <td class="amount">$387,336.66</td>
+                        <td>FLEX CREDIT VISION</td>
+                        <td class="z-score">14.78</td>
+                        <td>🔴 High Outlier</td>
+                    </tr>
+                    <tr class="high-z">
+                        <td>OTHER EMPLOYMENT COSTS BENEFITS</td>
+                        <td class="amount">$202,068.65</td>
+                        <td>DISABILITY INSURANCE</td>
+                        <td class="z-score">7.69</td>
+                        <td>🔴 High Outlier</td>
+                    </tr>
+                    <tr class="high-z">
+                        <td>United Way of Delaware</td>
+                        <td class="amount">$108,485.21</td>
+                        <td>EMPLOYEE CHARITABLE CONTRIB</td>
+                        <td class="z-score">4.12</td>
+                        <td>🔴 High Outlier</td>
+                    </tr>
+                    <tr class="high-z">
+                        <td>DTCC ED FOUNDATION</td>
+                        <td class="amount">$63,784.13</td>
+                        <td>EMPLOYEE CHARITABLE CONTRIB</td>
+                        <td class="z-score">2.41</td>
+                        <td>🔴 High Outlier</td>
+                    </tr>
+                    <tr class="high-z">
+                        <td>SECC</td>
+                        <td class="amount">$105,698.53</td>
+                        <td>EMPLOYEE CHARITABLE CONTRIB</td>
+                        <td class="z-score">4.01</td>
+                        <td>🔴 High Outlier</td>
+                    </tr>
+                    <tr class="high-z">
+                        <td>RESTITUTION</td>
+                        <td class="amount">$102,520.34</td>
+                        <td>RESTITUTION-COURT FINE PASSTHR</td>
+                        <td class="z-score">3.89</td>
+                        <td>🔴 High Outlier</td>
+                    </tr>
+                    <tr class="high-z">
+                        <td>Delaware Assoc of School Admin</td>
+                        <td class="amount">$124,714.37</td>
+                        <td>EMPLOYEE UNION DUES</td>
+                        <td class="z-score">4.74</td>
+                        <td>🔴 High Outlier</td>
+                    </tr>
+                    <tr class="high-z">
+                        <td>OTHER EMPLOYMENT COSTS BENEFITS</td>
+                        <td class="amount">$87,297.22</td>
+                        <td>PENSIONS/EMPLOYER'S SHARE</td>
+                        <td class="z-score">3.31</td>
+                        <td>🔴 High Outlier</td>
+                    </tr>
+                    <tr class="high-z">
+                        <td>DIV OF ACCOUNTING</td>
+                        <td class="amount">$94,079.29</td>
+                        <td>MEALS - OUT-OF-STATE</td>
+                        <td class="z-score">3.57</td>
+                        <td>🔴 High Outlier</td>
+                    </tr>
+                    <tr class="high-z">
+                        <td>OTHER EMPLOYMENT COSTS BENEFITS</td>
+                        <td class="amount">$69,694.48</td>
+                        <td>DENTAL PLAN</td>
+                        <td class="z-score">2.63</td>
+                        <td>🔴 High Outlier</td>
+                    </tr>
+                    <tr class="high-z">
+                        <td>OTHER EMPLOYMENT COSTS BENEFITS</td>
+                        <td class="amount">$62,481.77</td>
+                        <td>HEALTH INS/EMPLOYERS' SH</td>
+                        <td class="z-score">2.36</td>
+                        <td>🔴 High Outlier</td>
+                    </tr>
+                    <tr class="high-z">
+                        <td>DIV OF ACCOUNTING</td>
+                        <td class="amount">$58,593.86</td>
+                        <td>OFFICE SUPPLIES</td>
+                        <td class="z-score">2.21</td>
+                        <td>🔴 High Outlier</td>
+                    </tr>
+                    <tr class="high-z">
+                        <td>DIV OF ACCOUNTING</td>
+                        <td class="amount">$40,375.44</td>
+                        <td>FOOD</td>
+                        <td class="z-score">1.51</td>
+                        <td>🔴 High Outlier</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="footer">
+                <h3>📋 What This Means</h3>
+                <ul>
+                    <li><strong>🔴 High Outliers:</strong> Vendors with unusually high spending amounts that may warrant investigation</li>
+                    <li><strong>🟢 Low Outliers:</strong> Vendors with unusually low spending amounts that might indicate data errors or exceptional deals</li>
+                    <li><strong>Delta Baseline:</strong> Statistical measure of how many standard deviations away from the mean a value is</li>
+                </ul>
+                <p><strong>Next Steps:</strong> Review flagged vendors for potential procurement optimization opportunities or data quality issues.</p>
+            </div>
+        </div>
+    
+    
+
+</div>
+
+</body></html>
