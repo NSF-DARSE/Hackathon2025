@@ -66,6 +66,12 @@ This project analyzes Delaware's government expenditure data from the Delaware C
 - `f92f0a14_f312_4315_b587_3516d19bc6ee.ipynb`: Additional analysis notebook
 - `Nikhil_Notebookipynb.ipynb`: Extended analysis notebook
 
+### 5. Z-Score Analysis Results
+- `vendor_service_zscore_analysis.xlsx`: Comprehensive Excel report with z-score analysis results
+  - Statistical outlier detection for vendor-service relationships
+  - Detailed pricing anomaly analysis
+  - Supports KR2 findings on vendor price variations
+
 ## Key Findings & Results
 
 ### KR1 Achievement: Common Spending Categories Identified
@@ -200,6 +206,7 @@ This project analyzes Delaware's government expenditure data from the Delaware C
 ├── jpm_team_cost_2023.ipynb           # Cost analysis by department
 ├── f92f0a14_f312_4315_b587_3516d19bc6ee.ipynb  # Additional analysis
 ├── Nikhil_Notebookipynb.ipynb         # Extended analysis
+├── vendor_service_zscore_analysis.xlsx # Z-score analysis results
 ├── email.htm                          # Email template/alert system
 └── email_alert.patch                  # Email alert configuration
 ```
