@@ -31,8 +31,8 @@ This project analyzes Delaware's government expenditure data from the Delaware C
 ## Team Information
 
 - **Hackathon**: Hen Hacks 2025
-- **Team Name**: [Synergy-Squad]
-- **Team Members**: [Nikhil Dhanankam, Saieda Ali Zada, SAMEER RITHWIK SIDDABHAKTUNI, JD Wang]
+- **Team Name**: Synergy-Squad
+- **Team Members**: Nikhil Dhanankam, Saieda Ali Zada, SAMEER RITHWIK SIDDABHAKTUNI, JD Wang
 - **Repository**: NSF-DARSE/Hackathon2025
 
 ## Project Components
