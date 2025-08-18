@@ -69,24 +69,71 @@ This project analyzes Delaware's government expenditure data from the Delaware C
 ## Key Findings & Results
 
 ### KR1 Achievement: Common Spending Categories Identified
-1. **Office Supplies** - Analyzed across multiple departments with cost variations
-2. **IT Services** - Identified different vendors and pricing structures
-3. **Professional Services** - Found opportunities for consolidated contracts
-4. **Equipment & Furniture** - Discovered price variations across departments
-5. **Travel & Training** - Identified potential for standardized rates
+**Top 15 Most Used Spending Categories Across State Departments:**
+
+1. **Computer Services** - Used by 24 departments (100% coverage)
+2. **Security** - Used by 24 departments (100% coverage)
+3. **Other Professional Service** - Used by 24 departments (100% coverage)
+4. **Office Supplies** - Used by 24 departments (100% coverage)
+5. **Postage** - Used by 24 departments (100% coverage)
+6. **Equipment Rental** - Used by 23 departments
+7. **Computer Supplies** - Used by 23 departments
+8. **Employee Garnishments** - Used by 23 departments
+9. **Software Purchases** - Used by 23 departments
+10. **Telecommunication** - Used by 23 departments
+11. **Maintenance** - Used by 23 departments
+12. **Equipment Repair** - Used by 23 departments
+13. **Training** - Used by 22 departments
+14. **Printing & Binding** - Used by 22 departments
+15. **Sanitary Services** - Used by 22 departments
+
+**Key Insight**: Computer Services, Security, Other Professional Service, Office Supplies, and Postage appear in nearly all departments, representing prime opportunities for consolidated purchasing.
 
 ### KR2 Achievement: Vendor Price Variations Detected
-1. **Office Supplies**: Multiple departments purchasing similar items from different vendors at varying prices
-2. **IT Services**: Different departments using different vendors for similar services
-3. **Professional Services**: Significant price variations for comparable services across departments
+
+**Computer Services Analysis - Departments Spending on Same Service from Different Vendors:**
+
+| Department | Unique Vendors | Total Spend (2020-2025) | Transactions | Avg Transaction |
+|------------|---------------|------------------------|--------------|-----------------|
+| **DEPT OF HEALTH & SOCIAL SVS** | 61 | $24,679,664.64 | 1,613 | $15,300.47 |
+| **DEPT OF STATE** | 14 | $10,488,014.77 | 119 | $88,134.58 |
+| **DEPT OF TRANSPORTATION** | 44 | $6,679,209.26 | 417 | $16,017.29 |
+| **DEPT OF ELECTIONS** | 3 | $5,468,250.53 | 93 | $58,798.39 |
+| **DEPT OF NATRL RES AND ENV CONT** | 22 | $4,431,938.00 | 410 | $10,809.60 |
+| **DEPT OF LABOR** | 16 | $3,495,214.87 | 175 | $19,972.66 |
+| **JUDICIAL** | 28 | $3,344,042.31 | 265 | $12,619.03 |
+| **EXECUTIVE** | 15 | $2,626,255.64 | 86 | $30,537.86 |
+
+**Key Findings:**
+- **Price Variation**: Average transaction costs range from $10,809 (Natural Resources) to $88,134 (State Department) - an 8x difference!
+- **Vendor Fragmentation**: Health & Social Services uses 61 different vendors vs. Elections using only 3
+- **Consolidation Opportunity**: Standardizing pricing could save millions across departments
 
 ### KR3 Achievement: Potential Savings Estimation
+
+**Spending Breakdown Analysis:**
+
+**Computer Services ($71,183,604 total):**
+- **DEPT OF HEALTH & SOCIAL SVS**: 34.7% ($24.7M) - Largest spender
+- **DEPT OF STATE**: 14.7% ($10.5M) - Highest average transaction cost
+- **DEPT OF TRANSPORTATION**: 9.4% ($6.7M)
+- **DEPT OF ELECTIONS**: 7.7% ($5.5M)
+- **Others**: 33.5% ($23.8M)
+
+**Other Professional Service ($1,314,290,501 total):**
+- **DEPT OF HEALTH & SOCIAL SVS**: 48.0% ($630.9M) - Dominant spender
+- **DEPT OF FINANCE**: 14.3% ($188.0M)
+- **DEPT OF TRANSPORTATION**: 7.7% ($101.2M)
+- **Others**: 30.0% ($394.2M)
+
+**Potential Savings Opportunities:**
 - **Data Scale**: Analyzed over 11 million expenditure records
 - **Anomaly Detection**: Identified unusual spending patterns using machine learning
 - **Department Analysis**: Compared spending efficiency across different government departments
 - **Cost Efficiency**: Calculated cost-per-employee metrics for office supplies
 - **Consolidation Opportunities**: Estimated potential savings through bulk purchasing
 - **Statistical Analysis**: Z-score analysis identified pricing outliers and anomalies
+- **Vendor Standardization**: Potential 15-25% savings through consolidated vendor contracts
 
 ## Technologies Used
 
