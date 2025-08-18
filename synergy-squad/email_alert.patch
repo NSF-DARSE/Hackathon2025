@@ -1,0 +1,273 @@
+diff --git a/email_alert.py b/email_alert.py
+index a91c531..c882139 100644
+--- a/email_alert.py
++++ b/email_alert.py
+@@ -5,7 +5,7 @@ from email.message import EmailMessage
+ # ---- Config via env ----
+ EMAIL_SENDER = os.getenv("EMAIL_SENDER", "")
+ EMAIL_APP_PASSWORD = os.getenv("EMAIL_APP_PASSWORD", "")
+-EMAIL_RECIPIENT = os.getenv("EMAIL_RECIPIENT", "rithwik@udel.edu")
++EMAIL_RECIPIENT = os.getenv("EMAIL_RECIPIENT", "user@371892.xyz")
+ Z_HIGH = float(os.getenv("Z_HIGH", "1.5"))
+ Z_LOW  = float(os.getenv("Z_LOW", "-1"))
+ VENDOR_COL = os.getenv("VENDOR_COL", "VENDOR")
+@@ -92,35 +92,225 @@ def compute_anomalies(headers, rows):
+     return flagged, headers, stats
+ 
+ def build_email(subject_base, headers, flagged, stats):
+-    subject = f"  {len(flagged)} Records Detected"
+-    lines = []
+-    lines.append("CSV Column Headers:")
+-    lines.append("")
++    subject = f"🔍 Anomaly Detection: {len(flagged)} Records Detected"
++    
++    # Build HTML email content
++    html_content = f"""
++    <!DOCTYPE html>
++    <html>
++    <head>
++        <style>
++            body {{
++                font-family: Arial, sans-serif;
++                margin: 20px;
++                background-color: #f5f5f5;
++                font-size: 16px;
++            }}
++            .container {{
++                background-color: white;
++                padding: 20px;
++                border-radius: 8px;
++                box-shadow: 0 2px 4px rgba(0,0,0,0.1);
++                max-width: 1000px;
++                margin: 0 auto;
++            }}
++            .header {{
++                background-color: #00539f;
++                color: white;
++                padding: 15px;
++                border-radius: 5px;
++                text-align: center;
++                margin-bottom: 20px;
++            }}
++            .header h1 {{
++                font-size: 28px;
++                margin: 0;
++            }}
++            .header p {{
++                font-size: 18px;
++                margin: 5px 0 0 0;
++            }}
++            .stats-box {{
++                background-color: #e3f2fd;
++                padding: 15px;
++                border-radius: 5px;
++                margin-bottom: 20px;
++                border-left: 4px solid #00539f;
++                font-size: 16px;
++            }}
++            .stats-box h3 {{
++                font-size: 20px;
++                margin-top: 0;
++            }}
++            .anomaly-table {{
++                width: 100%;
++                border-collapse: collapse;
++                margin-top: 15px;
++                font-size: 15px;
++            }}
++            .anomaly-table th {{
++                background-color: #00539f;
++                color: white;
++                padding: 12px;
++                text-align: left;
++                border: 1px solid #ddd;
++                font-size: 16px;
++            }}
++            .anomaly-table td {{
++                padding: 10px;
++                border: 1px solid #ddd;
++                vertical-align: top;
++                font-size: 15px;
++            }}
++            .anomaly-table tr:nth-child(even) {{
++                background-color: #f9f9f9;
++            }}
++            .anomaly-table tr:hover {{
++                background-color: #f5f5f5;
++            }}
++            .high-z {{
++                background-color: #e8f4fd !important;
++                color: #00539f;
++                font-weight: bold;
++            }}
++            .low-z {{
++                background-color: #e8f5e8 !important;
++                color: #2e7d32;
++                font-weight: bold;
++            }}
++            .amount {{
++                text-align: right;
++                font-weight: bold;
++            }}
++            .z-score {{
++                text-align: center;
++                font-weight: bold;
++            }}
++            .footer {{
++                margin-top: 20px;
++                padding: 15px;
++                background-color: #f0f7ff;
++                border-radius: 5px;
++                border-left: 4px solid #00539f;
++                font-size: 16px;
++            }}
++            .footer h3 {{
++                font-size: 20px;
++                margin-top: 0;
++            }}
++            .no-anomalies {{
++                text-align: center;
++                color: #4caf50;
++                font-size: 20px;
++                padding: 30px;
++                background-color: #e8f5e8;
++                border-radius: 5px;
++            }}
++            .no-anomalies h2 {{
++                font-size: 24px;
++            }}
++            h2 {{
++                font-size: 22px;
++            }}
++        </style>
++    </head>
++    <body>
++        <div class="container">
++            <div class="header">
++                <h1>🏛️ Delaware Open Checkbook Anomaly Detection Report</h1>
++                <p>Potential spending irregularities detected</p>
++            </div>
++            
++            <div class="stats-box">
++                <h3>📊 Analysis Summary</h3>
++                <ul>
++                    <li><strong>Total Flagged Records:</strong> {len(flagged)}</li>
++                    <li><strong>Delta Baseline Thresholds:</strong> High > {stats['z_high']}, Low < {stats['z_low']}</li>"""
++    
++    if stats['mu'] is not None:
++        html_content += f"""
++                    <li><strong>Dataset Mean:</strong> ${stats['mu']:,.2f}</li>
++                    <li><strong>Standard Deviation:</strong> ${stats['sigma']:,.2f}</li>"""
++    
++    html_content += """
++                </ul>
++            </div>"""
++    
+     if flagged:
+-        lines.append("--------------------------------")
+-        lines.append("--------------------------------")
+-        lines.append("Vendor || Amount || Account Description || Delta Baseline")
+-        lines.append("--------------------------------")
+-        lines.append("--------------------------------")
++        html_content += f"""
++            <h2>🔍 Detected Anomalies ({min(len(flagged), 50)} of {len(flagged)} shown)</h2>
++            <table class="anomaly-table">
++                <thead>
++                    <tr>
++                        <th>Vendor</th>
++                        <th>Amount</th>
++                        <th>Account Description</th>
++                        <th>Delta Baseline</th>
++                        <th>Flag Type</th>
++                    </tr>
++                </thead>
++                <tbody>"""
++        
+         for r in flagged[:50]:
+-            lines.append(f"- {r['vendor']}         ||          {r['amount']:,.2f}            ||      {r['account_description']}         ||            {r['z']:.2f}")
++            z_class = "high-z" if r['z'] > stats['z_high'] else "low-z"
++            flag_type = "� High Outlier" if r['z'] > stats['z_high'] else "🟢 Low Outlier"
++            
++            html_content += f"""
++                    <tr class="{z_class}">
++                        <td>{r['vendor']}</td>
++                        <td class="amount">${r['amount']:,.2f}</td>
++                        <td>{r['account_description']}</td>
++                        <td class="z-score">{r['z']:.2f}</td>
++                        <td>{flag_type}</td>
++                    </tr>"""
++        
++        html_content += """
++                </tbody>
++            </table>"""
++        
++        if len(flagged) > 50:
++            html_content += f"""
++            <p style="text-align: center; margin-top: 15px; color: #666;">
++                <em>Showing top 50 of {len(flagged)} total anomalies</em>
++            </p>"""
+     else:
+-        lines.append("No rows exceeded the configured delta baseline thresholds.")
+-    lines.append("")
+-    lines.append("--------------------------------")
+-    lines.append("DESCRIPTION: possible abnormalities found in these vendors")
+-    return subject, "\n".join(lines)
++        html_content += """
++            <div class="no-anomalies">
++                <h2>✅ No Anomalies Detected</h2>
++                <p>All records fall within the configured Delta Baseline thresholds.</p>
++            </div>"""
++    
++    html_content += """
++            <div class="footer">
++                <h3>📋 What This Means</h3>
++                <ul>
++                    <li><strong>� High Outliers:</strong> Vendors with unusually high spending amounts that may warrant investigation</li>
++                    <li><strong>🟢 Low Outliers:</strong> Vendors with unusually low spending amounts that might indicate data errors or exceptional deals</li>
++                    <li><strong>Delta Baseline:</strong> Statistical measure of how many standard deviations away from the mean a value is</li>
++                </ul>
++                <p><strong>Next Steps:</strong> Review flagged vendors for potential procurement optimization opportunities or data quality issues.</p>
++            </div>
++        </div>
++    </body>
++    </html>"""
++    
++    return subject, html_content
+ 
+-def send_gmail(subject, body):
++def send_gmail(subject, html_body):
+     if not EMAIL_SENDER or not EMAIL_APP_PASSWORD or not EMAIL_RECIPIENT:
+         raise RuntimeError("Set EMAIL_SENDER, EMAIL_APP_PASSWORD, and EMAIL_RECIPIENT env vars.")
++    
+     msg = EmailMessage()
+     msg["From"] = EMAIL_SENDER
+     msg["To"] = EMAIL_RECIPIENT
+     msg["Subject"] = subject
+-    msg.set_content(body)
++    
++    # Set HTML content
++    msg.set_content("This email requires HTML support to display properly.")  # Fallback text
++    msg.add_alternative(html_body, subtype="html")
++    
+     ctx = ssl.create_default_context()
+-    with smtplib.SMTP_SSL("smtp.gmail.com", 465, context=ctx) as s:
++    with smtplib.SMTP_SSL("smtp.mailgun.org", 465, context=ctx) as s:
+         s.login(EMAIL_SENDER, EMAIL_APP_PASSWORD)
+         s.send_message(msg)
+ 
+@@ -128,11 +318,11 @@ def main():
+     #ap = argparse.ArgumentParser()
+     #ap.add_argument("--file", required=True, help="")
+     #args = ap.parse_args()
+-    headers, rows = load_table("C:\\Users\\asus\\Desktop\\henhack\\vendor_service_zscore_analysis.csv")
++    headers, rows = load_table("./vendor_service_zscore_analysis.csv")
+     flagged, headers, stats = compute_anomalies(headers, rows)
+-    subject, body = build_email(f"[CSV Scan] {os.path.basename('C:\\Users\\asus\\Desktop\\henhack\\vendor_service_zscore_analysis.csv')}", headers, flagged, stats)
+-    send_gmail(subject, body)
+-    print(f"✅ Sent to {EMAIL_RECIPIENT}: {subject}")
++    subject, html_body = build_email(f"[CSV Scan] {os.path.basename('./vendor_service_zscore_analysis.csv')}", headers, flagged, stats)
++    send_gmail(subject, html_body)
++    print(f"✅ Sent HTML email to {EMAIL_RECIPIENT}: {subject}")
+ 
+ if __name__ == "__main__":
+     main()
