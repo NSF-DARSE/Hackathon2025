@@ -72,7 +72,24 @@ This project analyzes Delaware's government expenditure data from the Delaware C
   - Detailed pricing anomaly analysis
   - Supports KR2 findings on vendor price variations
 
+### 6. Email Alert System
+- `email.htm`: Email alert template for automated notifications
+  - Professional HTML email template for anomaly alerts
+  - Designed for automated notification system
+  - `email_alert.patch`: Configuration for email alert system
+  - Enables real-time monitoring and alerting for cost-saving opportunities
+
 ## Key Findings & Results
+
+### Automated Monitoring & Alert System
+- **Email Alert Template**: Professional HTML email notifications for anomaly detection
+- **Real-time Monitoring**: Automated system to flag unusual spending patterns
+- **Alert Features**:
+  - Anomaly detection notifications with detailed statistics
+  - Color-coded z-score highlighting (high/low anomalies)
+  - Department and vendor-specific alerts
+  - Professional formatting for stakeholder communication
+- **Implementation**: Ready-to-deploy email alert system for ongoing monitoring
 
 ### KR1 Achievement: Common Spending Categories Identified
 **Top 15 Most Used Spending Categories Across State Departments:**
@@ -207,9 +224,23 @@ This project analyzes Delaware's government expenditure data from the Delaware C
 ├── f92f0a14_f312_4315_b587_3516d19bc6ee.ipynb  # Additional analysis
 ├── Nikhil_Notebookipynb.ipynb         # Extended analysis
 ├── vendor_service_zscore_analysis.xlsx # Z-score analysis results
-├── email.htm                          # Email template/alert system
-└── email_alert.patch                  # Email alert configuration
+├── email.htm                          # Email alert template for anomaly notifications
+└── email_alert.patch                  # Email alert system configuration
 ```
+
+## Future Enhancements
+
+### Automated Monitoring System
+- **Real-time Alert System**: Email notifications for detected anomalies
+- **Dashboard Integration**: Web-based monitoring dashboard
+- **Automated Reporting**: Scheduled reports for stakeholders
+- **Machine Learning Pipeline**: Continuous model retraining and improvement
+
+### Implementation Roadmap
+- **Phase 1**: Deploy email alert system (ready with current templates)
+- **Phase 2**: Develop web dashboard for real-time monitoring
+- **Phase 3**: Integrate with Delaware's financial systems
+- **Phase 4**: Expand to other state agencies
 
 ## Contributing
 
