@@ -8,19 +8,6 @@ Students: Aaron Jarmusch, Samuel Zheng, Nihaal Chowdary Surpani, Asritha Polu, J
 
 Sallie Mae Mentors: Michele Mullowney, Andrew De Angelo, Mark Stueve
 
-## Setup
-
-
-1. **Build and run the application**:
-   ```bash
-   docker-compose up --build
-   ```
-
-2. **Access the application**:
-   - Frontend: http://localhost:3000
-   - Backend API: http://localhost:8000
-   - API Documentation: http://localhost:8000/docs
-
 ## Project Structure
 
 ```
